@@ -30,8 +30,8 @@ fi
 if test $# -gt 0; then
 	# Extract the Android release version. If there is no match, then return 255
 	# and clear the var $android_release
-	android_release=`echo "$1" | sed -e '/android[0-9]\{2,\}/!{q255}; \
-		s/^\(android[0-9]\{2,\}\)-.*/\1/'`
+	android_release=$(echo "$1" | sed -e '/android[0-9]\{2,\}/!{q255}; \
+		s/^\(android[0-9]\{2,\}\)-.*/\1/')
 	if test $? -ne 0; then
 		android_release=
 	fi
@@ -47,8 +47,7 @@ if test $# -gt 0 -o ! -d "$srctree"; then
 	usage
 fi
 
-scm_version()
-{
+scm_version() {
 	local short
 	short=false
 
@@ -102,15 +101,14 @@ scm_version()
 		# git-update-index(1), git-diff-index(1), and git-status(1).
 		if {
 			git --no-optional-locks status -uno --porcelain 2>/dev/null ||
-			git diff-index --name-only HEAD
+				git diff-index --name-only HEAD
 		} | read dummy; then
-			printf '%s' -dirty
+			printf '%s' ''
 		fi
 	fi
 }
 
-collect_files()
-{
+collect_files() {
 	local file res=
 
 	for file; do
