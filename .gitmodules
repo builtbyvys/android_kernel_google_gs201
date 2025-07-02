@@ -1,0 +1,8 @@
+[submodule "KernelSU-Next"]
+	path = KernelSU-Next
+	url = git@github.com:builtbyvys/KernelSU-Next
+	branch = next-susfs
+[submodule "susfs4ksu"]
+	path = susfs4ksu
+	url = git@github.com:builtbyvys/susfs4ksu
+	branch = gki-android14-6.1-dev
